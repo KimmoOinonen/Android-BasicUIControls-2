@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import static android.R.attr.id;
@@ -28,11 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginButtonClicked(View view) {
 // find autocomplete
-        AutoCompleteTextView auto = (AutoCompleteTextView) findViewById(login);
+        AutoCompleteTextView logintext = (AutoCompleteTextView) findViewById(R.id.login);
 // get autocomplete text
-        String text = (String) auto.getText();
+        String text = logintext.getText().toString();
+// find password
+        EditText passtext = (EditText) findViewById(R.id.passEditText);
+// get password text
+        String txt = passtext.getText().toString();
 // toast message to screen
-        Toast.makeText(getApplicationContext(), text,
+        Toast.makeText(getApplicationContext(), text + " " + txt,
                 Toast.LENGTH_SHORT).show();
     }
 }
